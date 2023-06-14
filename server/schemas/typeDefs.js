@@ -16,7 +16,7 @@ const typeDefs = gql`
     _id: ID!
     streamerName: String!
     title: String!
-    createdAt: String
+    date: String!
     views: Int!
     comments: [Comment]!
     commentCount: Int!
@@ -29,12 +29,16 @@ const typeDefs = gql`
     createdAt: String
   }
 
-  """ 
-  -----> finish the rest <-----
-  """
-
   type Query {
     viewUsers: [User]
+    viewClip: [Clip]
+    viewComment: [Comment]
+  }
+
+  type Mutation {
+    addUser(username: String!, email: String!, password: String!, twitchAccount: String!): User
+    addClip(streamerName: String!, title: String!, date: String!, views: Int!): Clip
+    addComment(commentText: String!, username: String!, createdAt: String): Comment
   }
 `;
 

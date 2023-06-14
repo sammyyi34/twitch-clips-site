@@ -15,10 +15,9 @@ const clipSchema = new Schema ({
     required: true,
     trim: true
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: createdDate => new Date(createdDate).toLocaleDateString(),
+  date: {
+    type: String,
+    required: true
   },
   views: {
     type: Number,
