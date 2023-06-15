@@ -23,6 +23,14 @@ const clipSchema = new Schema ({
     type: Number,
     required: true
   },
+  thumbnail: {
+    type: String,
+    required: true
+  },
+  clipUrl: {
+    type: String,
+    required: true
+  },
   comments: [commentSchema]
 })
 
