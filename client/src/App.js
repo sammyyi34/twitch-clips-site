@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import Clips from './components/Clips';
+// import Clips from './components/Clips';
 
 const client = new ApolloClient ({
   uri: '/graphql',
@@ -13,7 +13,7 @@ function App() {
     <ApolloProvider client={client}>
     <div className="text-3xl font-bold underline">
       testing
-      <Clips />
+      {/* <Clips /> */}
     </div>
     </ApolloProvider>
 
