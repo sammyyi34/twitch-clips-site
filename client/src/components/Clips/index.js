@@ -13,7 +13,7 @@ const Clips = () => {
           {clips.map((clip, i) => {
             return (
               <div key={i}>
-                {clip.streamerName}
+                {/* {clip.streamerName} */}
               </div>
             )
           })}
