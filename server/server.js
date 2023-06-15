@@ -17,7 +17,7 @@ const apolloServer = new ApolloServer({
 const app = express();
 
 app.use(express.urlencoded({extended: true}));
-app.use(express.json);
+app.use(express.json());
 
 // start ApolloServer, then connect to express, then connect to mongoose and lastly start the app
 const startApolloServer = async () => {
