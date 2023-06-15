@@ -11,7 +11,7 @@ const client = new ApolloClient ({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <div className="App">
+    <div className="text-3xl font-bold underline">
       testing
       <Clips />
     </div>
