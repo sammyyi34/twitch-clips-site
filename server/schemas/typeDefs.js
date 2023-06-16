@@ -3,31 +3,31 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type User {
     _id: ID!
-    username: String!
-    email: String!
-    password: String!
-    twitchAccount: String!
+    username: String
+    email: String
+    password: String
+    twitchAccount: String
     clips: [Clip]
     friends: [User]
-    friendCount: Int!
+    friendCount: Int
   }
 
   type Clip {
     _id: ID!
-    streamerName: String!
-    title: String!
-    date: String!
-    views: Int!
+    streamerName: String
+    title: String
+    date: String
+    views: Int
     thumbnail: String
     clipUrl: String
-    comments: [Comment]!
-    commentCount: Int!
+    comments: [Comment]
+    commentCount: Int
   }
 
   type Comment {
     commentId: ID!
-    commentText: String!
-    username: String!
+    commentText: String
+    username: String
     createdAt: String
   }
 
@@ -38,9 +38,9 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, twitchAccount: String!): User
-    addClip(streamerName: String!, title: String!, date: String!, views: Int!, thumbnail: String!, clipUrl: String!): Clip
-    addComment(commentText: String!, username: String!, createdAt: String): Comment
+    addUser(username: String, email: String, password: String, twitchAccount: String): User
+    addClip(streamerName: String, title: String, date: String, views: Int, thumbnail: String, clipUrl: String): Clip
+    addComment(commentText: String, username: String, createdAt: String): Comment
   }
 `;
 

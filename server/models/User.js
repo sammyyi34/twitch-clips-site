@@ -9,24 +9,20 @@ const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
-    required: true,
     trim: true
   },
   email: {
     type: String,
-    required: true,
     unique: true,
     match: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please enter a valid email'],
   },
   password: {
     type: String,
-    required: true,
     trim: true,
     minlength: 8,
   },
   twitchAccount: {
     type: String,
-    required: true,
     trim: true
   },
   clips: [{
