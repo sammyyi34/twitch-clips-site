@@ -6,12 +6,7 @@ import { ADD_CLIPS } from '../../utils/mutations'
 const Search = () => {
 
   const [ clipInfo, setClipInfo ] = useState({
-    streamerName: '',
-    title: '',
-    date: '',
-    views: '',
-    thumbnail: '',
-    clipUrl: ''
+    streamerName: ''
   });
 
   const [mutateClips, { error }] = useMutation(ADD_CLIPS);
@@ -32,6 +27,7 @@ const Search = () => {
           ...clipInfo
         }
       })
+      window.location.reload();
       console.log(data)
     } catch (err) {
       console.log(err)

@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql,} from '@apollo/client';
 
 export const VIEW_CLIP = gql`
   query seeAllClips {
@@ -13,3 +13,20 @@ export const VIEW_CLIP = gql`
     }
   }
 `;
+
+// export const VIEW_HOMEPAGE_CLIPS = gql`
+//   query getHomepageClips {
+//     clips @rest(type: "Clips", path: "/") { 
+//       total 
+//       data @type(name: "Clips) { 
+//         id
+//         url
+//         broadcaster_name
+//         title
+//         view_count
+//         created_at
+//         thumbnail_url
+//        } 
+//     } 
+//  }
+// `;

@@ -12,24 +12,19 @@ const clipSchema = new Schema ({
   },
   title: {
     type: String,
-    required: true,
     trim: true
   },
   date: {
-    type: String,
-    required: true
+    type: String
   },
   views: {
-    type: Number,
-    required: true
+    type: Number
   },
   thumbnail: {
-    type: String,
-    required: true
+    type: String
   },
   clipUrl: {
-    type: String,
-    required: true
+    type: String
   },
   comments: [commentSchema]
 })

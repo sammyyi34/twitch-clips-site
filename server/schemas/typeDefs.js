@@ -9,19 +9,19 @@ const typeDefs = gql`
     twitchAccount: String!
     clips: [Clip]
     friends: [User]
-    friendCount: Int!
+    friendCount: Int
   }
 
   type Clip {
     _id: ID!
     streamerName: String!
-    title: String!
-    date: String!
-    views: Int!
+    title: String
+    date: String
+    views: Int
     thumbnail: String
     clipUrl: String
-    comments: [Comment]!
-    commentCount: Int!
+    comments: [Comment]
+    commentCount: Int
   }
 
   type Comment {
@@ -39,7 +39,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!, twitchAccount: String!): User
-    addClip(streamerName: String!, title: String!, date: String!, views: Int!, thumbnail: String!, clipUrl: String!): Clip
+    addClip(streamerName: String!, title: String, date: String, views: Int, thumbnail: String, clipUrl: String): Clip
     addComment(commentText: String!, username: String!, createdAt: String): Comment
   }
 `;
