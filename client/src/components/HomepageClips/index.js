@@ -33,38 +33,42 @@ const HomepageClips = () => {
     fetchData();
   }, []);
 
+  const formatClipDate = (dateString) => {
+    const options = { month: "long", day: "numeric", year: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
   return (
     <section className="container mx-auto">
-      <h1>Diablo 4 Clips</h1>
+      <h2>Diablo 4 Clips</h2>
       {clipsData.map((clip) => (
         <div
           key={clip.id}
-          class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
         >
-          <a href={clip.url}>
-            <img
-              class="rounded-t-lg"
-              src={clip.thumbnail_url}
-              alt=""
-            />
+          <a href={clip.url} target="_blank" rel="noopener noreferrer">
+            <img className="rounded-t-lg" src={clip.thumbnail_url} alt="" />
           </a>
-          <div class="p-5">
-            <a href={clip.url}>
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                
+          <div className="p-5">
+            <a href={clip.url} target="_blank" rel="noopener noreferrer">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {clip.broadcaster_name}
               </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
-            </p>
+            <ul className="mb-3 font-normal text-gray-700 dark:text-white">
+              <li>"{clip.title}"</li>
+              <li>{clip.view_count} views</li>
+              <li>{formatClipDate(clip.created_at)}</li>
+            </ul>
             <a
               href={clip.url}
-              class="inline-flex items-center text-blue-600 hover:underline"
+              className="inline-flex items-center text-blue-600 hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Link to twitch clip
               <svg
-                class="w-5 h-5 ml-2"
+                className="w-5 h-5 ml-2"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"

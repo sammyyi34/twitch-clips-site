@@ -1,38 +1,59 @@
-import { useState } from 'react';
-
-import { useMutation } from '@apollo/client';
-import { ADD_CLIPS } from '../../utils/mutations'
+import { useState } from "react";
 
 const Search = () => {
+  const [searchInputValue, setSearchInputValue] = useState("");
 
-  const [ clipInfo, setClipInfo ] = useState({
-    streamerName: ''
-  });
-
-  const [mutateClips, { error }] = useMutation(ADD_CLIPS);
-
-  const handleInputChange = async (e) => {
-    const { name, value } = e.target;
-    console.log(name);
-    console.log(value);
-    console.log(clipInfo)
-    setClipInfo({...clipInfo, [name]: value});
-  }
-
-  const handleSearchSubmit = async (e) => {
-    e.preventDefault();
+  const searchBroadcaster = async (searchInputValue) => {
     try {
-      const { data } = await mutateClips({
-        variables: {
-          ...clipInfo
+      const headersList = {
+        "Client-Id": "iqzxo4pl07z9emlrlns1my4v6gq206",
+        Authorization: "Bearer 6b0u5h2l06qzsy2e57h1guikgrhy5p",
+      };
+
+      const response = await fetch(
+        `https://api.twitch.tv/helix/users?login=${searchInputValue}`,
+        {
+          method: "GET",
+          headers: headersList,
         }
-      })
-      window.location.reload();
-      console.log(data)
-    } catch (err) {
-      console.log(err)
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        const broadcasterId = data.data[0]?.id;
+
+        const streamerId = await fetch(
+          `https://api.twitch.tv/helix/clips?broadcaster_id=${broadcasterId}`,
+          {
+            method: "GET",
+            headers: headersList,
+          }
+        );
+
+        if (streamerId.ok) {
+          const clipsData = await streamerId.json();
+          console.log(clipsData);
+        } else {
+          console.error(
+            "Clips request failed to load"
+          );
+        }
+      } else {
+        console.error("User request failed with status:", response.status);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
     }
-  }
+  };
+
+  const handleInputChange = (event) => {
+    setSearchInputValue(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    searchBroadcaster(searchInputValue);
+  };
 
   return (
     <section className="container mx-auto">
@@ -45,9 +66,8 @@ const Search = () => {
               className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
               placeholder="Search for Twitch streamer"
               name="streamerName"
-              value={clipInfo.streamerName}
+              value={searchInputValue}
               onChange={handleInputChange}
-              required
             />
             <button
               type="submit"

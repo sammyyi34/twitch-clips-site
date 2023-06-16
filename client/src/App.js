@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
-import Search from './components/UserSearch';
+import Search from './components/Search';
 import HomepageClips from './components/HomepageClips';
 
 
