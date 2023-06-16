@@ -19,7 +19,7 @@ const Homepage = () => {
 
   return (
     <section className="container mx-auto">
-      hi
+      hello
     </section>
   );
 };
