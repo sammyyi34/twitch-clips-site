@@ -7,21 +7,23 @@ const commentSchema = require('./Comment')
 const clipSchema = new Schema ({
   streamerName: {
     type: String,
-    required: true,
     trim: true
   },
   title: {
     type: String,
-    required: true,
     trim: true
   },
   date: {
-    type: String,
-    required: true
+    type: String
   },
   views: {
-    type: Number,
-    required: true
+    type: Number
+  },
+  thumbnail: {
+    type: String
+  },
+  clipUrl: {
+    type: String
   },
   comments: [commentSchema]
 })
