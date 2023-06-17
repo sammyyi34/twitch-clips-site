@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import CommentBox from './components/Starter/CommentBox';
 // import Clips from './components/Clips';
 
 
@@ -14,6 +15,7 @@ function App() {
     <ApolloProvider client={client}>
     <div className="text-3xl font-bold underline">
       testing
+      <CommentBox />
       
               {/* <Clips /> */}
     </div>
