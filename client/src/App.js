@@ -14,7 +14,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
     <div className="text-3xl font-bold underline">
-      testing
+      
       <CommentBox />
       
               {/* <Clips /> */}

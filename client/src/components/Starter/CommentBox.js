@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+import './CommentBox.css';
 
 function CommentBox() {
   const [comments, setComments] = useState([]);
@@ -43,7 +44,7 @@ function CommentBox() {
 
   return (
     <div className="w-1/2 mx-auto">
-      <h2 className="text-center text-2xl font-bold mb-4">Place your comments here</h2>
+      <h2 className="text-center text-2xl mb-4 text-white">Place your comments here</h2>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
         <textarea
@@ -60,10 +61,10 @@ function CommentBox() {
         </button>
       </form>
       <div className="mt-4">
-        <h3 className="text-center text-xl font-bold mb-2">Comments</h3>
+        <h3 className="text-center text-xl mb-2 text-white">Comments</h3>
         {comments.map((comment, index) => (
           <div key={index} className="mb-2 border-b border-gray-300">
-            <p className="text-gray-900 dark:text-white">{comment}</p>
+            <p className="text-white">{comment}</p>
             <p className="text-sm text-gray-500 mt-1">{moment().format('MMMM Do YYYY, h:mm:ss a')}</p>
             <div className="flex justify-end">
               <button
