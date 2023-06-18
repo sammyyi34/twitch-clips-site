@@ -1,7 +1,9 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ setClipsData }) => {
   const [searchInputValue, setSearchInputValue] = useState("");
+  const navigate = useNavigate();
 
   const searchBroadcaster = async (searchInputValue) => {
     try {
@@ -32,7 +34,8 @@ const Search = () => {
 
         if (streamerId.ok) {
           const clipsData = await streamerId.json();
-          console.log(clipsData);
+          setClipsData(clipsData.data)
+          navigate("/clips");
         } else {
           console.error(
             "Clips request failed to load"

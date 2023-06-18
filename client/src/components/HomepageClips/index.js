@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const HomepageClips = () => {
-  const [clipsData, setClipsData] = useState([]);
+  const [homeClipsData, setHomeClipsData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,8 +20,8 @@ const HomepageClips = () => {
         );
 
         if (response.ok) {
-          const data = await response.json(); // Parse the response as JSON
-          setClipsData(data.data); // Extract the data array and update state
+          const data = await response.json();
+          setHomeClipsData(data.data);
         } else {
           console.error("Request failed with status:", response.status);
         }
@@ -41,7 +41,7 @@ const HomepageClips = () => {
   return (
     <section className="container mx-auto">
       <h2>Diablo 4 Clips</h2>
-      {clipsData.map((clip) => (
+      {homeClipsData.map((clip) => (
         <div
           key={clip.id}
           className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
