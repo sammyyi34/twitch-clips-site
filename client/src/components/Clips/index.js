@@ -1,8 +1,9 @@
 import React from "react";
-import { Box } from '@mui/material';
+import { Box } from '@mui/material'; // Box is a layout component from Material UI that helps override the default CSS styles of the iframe
 
+// clipsData is props passed from Search component
 const Clips = ({ clipsData }) => {
-  
+  //formats date to be more readable
   const formatClipDate = (dateString) => {
     const options = { month: "long", day: "numeric", year: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);

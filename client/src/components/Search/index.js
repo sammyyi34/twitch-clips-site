@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// setClipsData is a callback function passed down from App.js
 const Search = ({ setClipsData }) => {
   const [searchInputValue, setSearchInputValue] = useState("");
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Search = ({ setClipsData }) => {
         "Client-Id": "iqzxo4pl07z9emlrlns1my4v6gq206",
         Authorization: "Bearer 6b0u5h2l06qzsy2e57h1guikgrhy5p",
       };
-
+      // api call to get the streamer id from the streamer name
       const response = await fetch(
         `https://api.twitch.tv/helix/users?login=${searchInputValue}`,
         {
@@ -21,9 +22,8 @@ const Search = ({ setClipsData }) => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         const broadcasterId = data.data[0]?.id;
-
+        // api call to get the clips from the streamer id
         const streamerId = await fetch(
           `https://api.twitch.tv/helix/clips?broadcaster_id=${broadcasterId}`,
           {

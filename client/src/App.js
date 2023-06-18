@@ -15,6 +15,7 @@ const client = new ApolloClient ({
 
 
 function App() {
+  // callback functions that allow us to pass data from the Search component to the Clips component
   const [clipsData, setClipsData] = useState([]);
 
   return (
