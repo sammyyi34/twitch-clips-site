@@ -16,14 +16,14 @@ function CommentBox() {
     event.preventDefault();
     if (newComment.trim() !== '') {
       if (editMode) {
-        // Edit existing comment
+       
         const updatedComments = [...comments];
         updatedComments[editIndex] = newComment;
         setComments(updatedComments);
         setEditMode(false);
         setEditIndex(null);
       } else {
-        // Add new comment
+       
         setComments([...comments, newComment]);
       }
       setNewComment('');
