@@ -35,6 +35,7 @@ const Search = ({ setClipsData }) => {
         if (streamerId.ok) {
           const clipsData = await streamerId.json();
           setClipsData(clipsData.data)
+          console.log(clipsData.data)
           navigate("/clips");
         } else {
           console.error(
