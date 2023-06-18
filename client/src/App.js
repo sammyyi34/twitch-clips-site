@@ -7,11 +7,10 @@ import Search from './components/Search';
 import HomepageClips from './components/HomepageClips';
 import Clips from './components/Clips'
 
-
-const client = new ApolloClient ({
+const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql',
-  cache: new InMemoryCache()
-})
+  cache: new InMemoryCache(),
+});
 
 
 function App() {
