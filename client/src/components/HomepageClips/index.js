@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Box } from '@mui/material';
+import { Box } from '@mui/material'; // Box is a layout component from Material UI that helps override the default CSS styles of the iframe
 
 const HomepageClips = () => {
   const [homeClipsData, setHomeClipsData] = useState([]);
@@ -37,7 +37,7 @@ const HomepageClips = () => {
     const options = { month: "long", day: "numeric", year: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-
+  // return cards with embedded video to be rendered and data to be displayed by mapping over the homeClipsData
   return (
   <section className="container mx-auto mt-10 grid grid-cols-4 gap-4">
     {homeClipsData.map(({ id, url, broadcaster_name, creator_name, created_at }) => (
