@@ -1,22 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-// import Clips from './components/Clips';
+import CommentBox from './components/Starter/CommentBox';
 
-const client = new ApolloClient ({
+const client = new ApolloClient({
   uri: 'http://localhost:3001/graphql',
-  cache: new InMemoryCache()
-})
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
     <ApolloProvider client={client}>
-    <div className="text-3xl font-bold underline">
-      testing
-      {/* <Clips /> */}
-    </div>
+      <div className="text-3xl font-bold underline">
+        <CommentBox />
+        {/* <Clips /> */}
+      </div>
     </ApolloProvider>
-
   );
 }
 
