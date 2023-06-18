@@ -19,7 +19,6 @@ const HomepageClips = () => {
             headers: headersList,
           }
         );
-          console.log(response)
         if (response.ok) {
           const { data } = await response.json();
           setHomeClipsData(data);
@@ -41,9 +40,9 @@ const HomepageClips = () => {
 
   return (
 <section className="container mx-auto mt-10 grid grid-cols-4 gap-4">
-  {homeClipsData.map((clip) => (
+  {homeClipsData.map(({ id, url, broadcaster_name, creator_name, created_at }) => (
     <div
-      key={clip.id}
+      key={id}
       className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-2 flex flex-col"
 
     >
@@ -56,7 +55,7 @@ const HomepageClips = () => {
           }}
         >
           <iframe
-            src={`https://clips.twitch.tv/embed?clip=${clip.id}&parent=localhost`}
+            src={`https://clips.twitch.tv/embed?clip=${id}&parent=localhost`}
             title="Twitch Clip"
             allowFullScreen
             style={{
@@ -70,14 +69,12 @@ const HomepageClips = () => {
         </Box>
       </div>
       <div className="p-3" style={{ marginTop: '-25px', marginBottom: '-15px' }}>
-        <a href={clip.url} target="_blank" rel="noopener noreferrer">
           <h5 className="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {clip.broadcaster_name}
+            {broadcaster_name}
           </h5>
-        </a>
         <ul className="mb-2 text-base font-normal text-gray-700 dark:text-white">
-          <li>clipped by: {clip.creator_name}</li>
-          <li>{formatClipDate(clip.created_at)}</li>
+          <li>clipped by: {creator_name}</li>
+          <li>{formatClipDate(created_at)}</li>
         </ul>
       </div>
     </div>
