@@ -1,4 +1,7 @@
-# twitch-clips-site
+# twitch-clips-site 
+Jamie, Charlemagne
+Sammy, Yi
+Paul, Jang
 
 ## Your Task
 
@@ -11,30 +14,41 @@ new gamers to diablo will more then likely be confused due to a lack of extensiv
 we want to help the newer players get acclimated to the env iornment and make the endless grind seem less stressful and to have answers on hand to keep the player entertained for as long as possible 
 
 ## User Story
+Create a web application to immerse the user into the world of diablo 4 and assist the user each step of the way 
 
-as student developers i want a functioning app that witha friendly ui for fellow gamers to easily navigate to there streamers and videos while they play diablo 4.
+
 
 ## Acceptance Criteria
-
-Project 3 Requirements:
-React for front end
-GraphQL (recommended) with Node & Express ( Express API is also an option)
-MongoDB & Mongoose(recommended) OR Mysql & Sequelize
-Full CRUD application
-Polished UI
-Deployed (can be deployed on any platform)
-Authentication (with JWT, optional + bonus)
-Protect API Data
-high-quality README
-Clean repo with good coding standards
-Use a third party CSS library (optional)
-Setup service worker (optional)
-
-WHEN i check deployed app
-THEN deployed app appears with all intended functions.
-WHEN I log in 
-THEN  the ability to comment and check  streamers should work 
-WHEN I save a video 
-THEN it should save that i saved a video to watch in the future 
-WHEN Jung watches this project 
-THEN he gives us a passing grade and we celebrate!!!!
+Project 3 Requirements
+- React for front end
+- GraphQL (recommended) with Node & Express (Express API is also an option)
+- MongoDB & Mongoose (recommended) OR MySQL & Sequelize
+- Full CRUD application
+- Polished UI
+- Deployed (can be deployed on any platform)
+- Authentication (with JWT, optional + bonus)
+- Protect API Data
+- High-quality README
+- Clean repo with good coding standards
+- Use a third-party CSS library (optional)
+- Setup service worker (optional)
+- Responsive design for different screen sizes
+- Error handling and validation
+- User registration and account management
+- User roles and permissions (admin, regular user)
+- Server-side rendering (optional)
+- Unit tests and/or integration tests
+- Pagination or infinite scrolling for data display
+- Cross-browser compatibility
+- Internationalization and localization support
+- Data caching for improved performance
+- Real-time updates using WebSockets (optional)
+- Accessibility considerations and compliance with WCAG guidelines
+- Integration with external APIs or services
+- Usage of Git for version control and branching strategies
+- Continuous integration and deployment (CI/CD)
+- Performance optimization techniques (e.g., code splitting, lazy loading)
+- Logging and error tracking
+- Secure password storage and encryption
+- Email notifications or messaging functionality
+- Data backup and disaster recovery strategies
