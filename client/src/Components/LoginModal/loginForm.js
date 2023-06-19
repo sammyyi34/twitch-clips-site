@@ -29,7 +29,7 @@ const LoginModal = (props) => {
           password: userFormData.password 
         },
       });
-      const token = response.data.login.token;
+      const token = response.data.loginUser.token;
       Auth.login(token);
     } catch (e) {
       console.log(e);
