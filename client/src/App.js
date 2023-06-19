@@ -1,50 +1,24 @@
 import React from 'react';
 import './App.css';
-import { 
-  ApolloClient, 
-  ApolloProvider, 
-  InMemoryCache,
-  createHttpLink, 
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-
-import Navbar from './Components/Navbar/Navbar';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+// import Clips from './components/Clips';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
-});
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-
+  cache: new InMemoryCache()
+})
 
 function App() {
+  // callback functions that allow us to pass data from the Search component to the Clips component
+  const [clipsData, setClipsData] = useState([]);
+
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div className="container mx-auto">
-        <Navbar />
-        <Routes>
-          
-        </Routes>
-        </div>
-      </Router>
+    <div className="text-3xl font-bold underline">
+      testing
+      {/* <Clips /> */}
+    </div>
     </ApolloProvider>
-
   );
 }
 
