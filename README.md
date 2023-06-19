@@ -32,23 +32,25 @@ Project 3 Requirements
 - Clean repo with good coding standards
 - Use a third-party CSS library (optional)
 - Setup service worker (optional)
-- Responsive design for different screen sizes
-- Error handling and validation
-- User registration and account management
-- User roles and permissions (admin, regular user)
 - Server-side rendering (optional)
-- Unit tests and/or integration tests
-- Pagination or infinite scrolling for data display
-- Cross-browser compatibility
 - Internationalization and localization support
 - Data caching for improved performance
-- Real-time updates using WebSockets (optional)
 - Accessibility considerations and compliance with WCAG guidelines
 - Integration with external APIs or services
 - Usage of Git for version control and branching strategies
-- Continuous integration and deployment (CI/CD)
-- Performance optimization techniques (e.g., code splitting, lazy loading)
-- Logging and error tracking
 - Secure password storage and encryption
-- Email notifications or messaging functionality
-- Data backup and disaster recovery strategies
+
+## Screenshots
+
+![Screenshot 1]("C:\Users\uncut_J\Pictures\Screenshots\Screenshot 2023-06-19 190902.png")
+
+
+
+
+
+## Links 
+
+https://twitch-clips1-75e676e3bdef.herokuapp.com/
+
+
+
