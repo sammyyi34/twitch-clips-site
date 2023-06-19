@@ -3,16 +3,16 @@ import {
   ApolloClient, 
   ApolloProvider, 
   InMemoryCache,
-  createHttpLink, 
+  createHttpLink
 } from '@apollo/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React, { useState } from "react";
 import { setContext } from '@apollo/client/link/context';
 
-import Search from './Components/Search';
-import HomepageClips from './Components/HomepageClips';
-import Clips from './Components/Clips';
-import Navbar from './Components/Navbar';
+import Search from './components/Search';
+import HomepageClips from './components/HomepageClips';
+import Clips from './components/Clips';
+import Navbar from './components/Navbar';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
