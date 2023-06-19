@@ -8,8 +8,6 @@ const typeDefs = gql`
     password: String
     twitchAccount: String
     clips: [Clip]
-    friends: [User]
-    friendCount: Int
   }
 
   type Clip {
@@ -31,6 +29,11 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type Auth {
+    token: ID
+    user: User
+  }
+
   type Query {
     viewUsers: [User]
     viewClip: [Clip]
@@ -38,7 +41,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(username: String, email: String, password: String, twitchAccount: String): User
+    addUser(username: String!, email: String!, password: String!, twitchAccount: String!): Auth
+    loginUser(username: String!, password: String!): Auth
     addClip(streamerName: String, title: String, date: String, views: Int, thumbnail: String, clipUrl: String): Clip
     addComment(commentText: String, username: String, createdAt: String): Comment
   }
