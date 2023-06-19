@@ -44,8 +44,6 @@ const HomepageClips = () => {
     {homeClipsData.map(({ id, url, broadcaster_name, creator_name, created_at }) => (
       <div
         key={id}
-        className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-2 flex flex-col"
-
       >
         <div className="aspect-w-16 aspect-h-9">
           <Box

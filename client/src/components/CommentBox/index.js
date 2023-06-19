@@ -23,15 +23,19 @@ function CommentBox() {
         setComments(updatedComments);
         setEditMode(false);
         setEditIndex(null);
+        setShowModal(false);
+        setShowComments(true);
       } else {
-       
         setComments([...comments, newComment]);
+        setShowModal(false);
       }
       setNewComment('');
     }
   };
 
   const handleEditComment = (index) => {
+    setShowComments(false);
+    setShowModal(true)
     setEditMode(true);
     setEditIndex(index);
     setNewComment(comments[index]);
@@ -41,6 +45,7 @@ function CommentBox() {
     const updatedComments = [...comments];
     updatedComments.splice(index, 1);
     setComments(updatedComments);
+    setShowComments(false);
   };
 
   return (
@@ -80,7 +85,8 @@ function CommentBox() {
                 </button>
                 <div className="flex items-start justify-between p-6 border-b border-solid border-slate-200 rounded-t"> 
                 {comments.map((comment, index) => (
-                    <div key={index} className="mb-4 border-b border-gray-300"> 
+                    <div key={index} className="mb-4 border-b border-gray-300">
+                      <h3 className="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{comment}</h3>
                       <p className="text-sm text-gray-500 mt-2">{moment().format('MMMM Do YYYY, h:mm:ss a')}</p> 
                       <div className="flex justify-end mt-2">
                         <button onClick={() => handleEditComment(index)} className="text-blue-500 text-sm font-medium mr-2">
