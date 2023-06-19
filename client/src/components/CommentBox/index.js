@@ -48,15 +48,24 @@ function CommentBox() {
     setShowComments(false);
   };
 
+  function handleCommentClick() {
+    if (comments.length === 0) {
+      setShowComments(false);
+    } else {
+      setShowComments(true);
+    }
+  }
+  
+
   return (
     <>
       <div className="flex justify-end">
         <button
           className=" mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
-          onClick={() => setShowComments(true)}
+          onClick={handleCommentClick}
         >
-          <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+          <svg class="w-6 h-6" aria-hidden="true" fill={comments.length > 0 ? 'red' : 'currentColor'} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
         </button>
       {showComments ? (
         <>
@@ -103,15 +112,13 @@ function CommentBox() {
             </div>
           </div>
         </>
-
       ) : null}
-
         <button
           className="bg-blue-500 text-white rounded-lg px-2 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
           onClick={() => setShowModal(true)}
         >
-          Open regular modal
+          Comment
         </button>
       </div>
       {showModal ? (
