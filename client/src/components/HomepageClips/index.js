@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Box } from '@mui/material'; // Box is a layout component from Material UI that helps override the default CSS styles of the iframe
+import CommentBox from "../CommentBox";
 
 const HomepageClips = () => {
   const [homeClipsData, setHomeClipsData] = useState([]);
@@ -79,6 +80,7 @@ const HomepageClips = () => {
             <li>{formatClipDate(created_at)}</li>
           </ul>
         </div>
+        <CommentBox />
       </div>
     ))}
   </section>
