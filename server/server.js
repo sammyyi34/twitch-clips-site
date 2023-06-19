@@ -5,14 +5,15 @@ const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schemas')
 //mongoose connector
 const db = require('./config/connection');
-
+const { authMiddleware } = require('./utils/auth');
 //PORT
 const PORT = process.env.PORT || 3001;
 
 //creates new ApolloServer
 const apolloServer = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: authMiddleware,
 });
 
 const app = express();

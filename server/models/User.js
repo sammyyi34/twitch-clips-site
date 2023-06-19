@@ -29,9 +29,9 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Clip'
   }],
-  friends: [{
+  comments: [{
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'Comment'
   }]
 });
 

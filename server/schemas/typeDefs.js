@@ -45,6 +45,7 @@ const typeDefs = gql`
     loginUser(username: String!, password: String!): Auth
     addClip(streamerName: String, title: String, date: String, views: Int, thumbnail: String, clipUrl: String): Clip
     addComment(commentText: String, username: String, createdAt: String): Comment
+    removeComment(commentId: ID!): Comment
   }
 `;
 

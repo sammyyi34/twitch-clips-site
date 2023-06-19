@@ -43,11 +43,39 @@ const resolvers = {
       const clip = await Clip.create(args);
       return clip;
     },
-    addComment: async (_, args) => {
-      const comment = await Comment.create(args);
-      return comment;
+    addComment: async (_, { commentText }, context) => {
+      if (context.user) {
+        const comment = await Comment.create({
+          commentText,
+          username: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { comments: comment._id } }
+        );
+
+        return comment;
+      }
+        throw new AuthenticationError('You need to be logged in!');
     },
-  },
+    removeComment: async (parent, { commentId }, context) => {
+      if (context.user) {
+        const comment = await Comment.findOneAndDelete({
+          _id: commentId,
+          username: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { comments: comment._id } }
+        );
+
+        return comment;
+      }
+      throw new AuthenticationError( 'You need to be logged in!');
+    }
+  }
 };
 
 module.exports = resolvers;

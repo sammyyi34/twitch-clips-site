@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth from "../../utils/auth";
-import LoginModal from '../LoginModal/login';
+import LoginModal from '../LoginModal';
 import SignupModal from '../SignupModal';
 
 function Navbar() {

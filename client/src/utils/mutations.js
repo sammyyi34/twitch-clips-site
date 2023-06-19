@@ -45,3 +45,14 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_COMMENT = gql`
+  mutation AddComment($commentText: String, $username: String, $createdAt: String) {
+    addComment(commentText: $commentText, username: $username, createdAt: $createdAt) {
+      commentId
+      commentText
+      username
+      createdAt
+    }
+}
+`;
