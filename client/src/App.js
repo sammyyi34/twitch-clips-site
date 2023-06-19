@@ -9,9 +9,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React, { useState } from "react";
 import { setContext } from '@apollo/client/link/context';
 
-import HomepageClips from './components/HomepageClips';
-import Clips from './components/Clips'
-import Navbar from './Components/Navbar/Navbar';
+import Search from './Components/Search';
+import HomepageClips from './Components/HomepageClips';
+import Clips from './Components/Clips';
+import Navbar from './Components/Navbar';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -40,6 +41,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="container mx-auto">
+          <Navbar />
           <Search setClipsData={setClipsData} />
           <Routes>
             <Route path="/" element={<HomepageClips />} />
