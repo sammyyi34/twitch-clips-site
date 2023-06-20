@@ -1,5 +1,7 @@
 import React from "react";
 import { Box } from '@mui/material'; // Box is a layout component from Material UI that helps override the default CSS styles of the iframe
+import CommentBox from "../CommentBox"; // CommentBox component is imported to be used in the Clips component
+
 // clipsData is props passed from Search component
 const Clips = ({ clipsData }) => {
   //formats date to be more readable
@@ -47,6 +49,7 @@ const Clips = ({ clipsData }) => {
             <li>{formatClipDate(created_at)}</li>
           </ul>
         </div>
+        <CommentBox />
       </div>
     ))}
   </section>
